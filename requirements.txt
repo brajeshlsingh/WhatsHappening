@@ -1,0 +1,26 @@
+# Core Python packages for image and video processing
+Pillow>=10.0.0
+opencv-python>=4.8.0
+numpy>=1.24.0
+requests>=2.31.0
+
+# Data analysis and CSV processing
+pandas>=2.0.0
+
+# AI and LangChain packages
+langchain-core>=0.1.0
+langchain-ollama>=0.1.0
+langchain-chroma>=0.1.0
+
+# Vector database
+chromadb>=0.4.0
+
+# Terminal colors and formatting
+colorama>=0.4.6
+
+# Optional: Enhanced Google Drive download support
+gdown>=4.7.0
+
+# Development and Testing (optional - uncomment if needed)
+# pytest>=7.4.0
+# pytest-cov>=4.1.0

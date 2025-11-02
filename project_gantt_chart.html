@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCTV Object Detection System - Project Gantt Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .chart-container {
+            position: relative;
+            height: 600px;
+            margin: 20px 0;
+        }
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+            gap: 20px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        .project-info {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .milestone {
+            background: #e8f5e8;
+            padding: 10px;
+            border-left: 4px solid #27ae60;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎥 CCTV Object Detection & Analysis System</h1>
+        <h2 style="text-align: center; color: #34495e;">Project Development Gantt Chart</h2>
+        
+        <div class="project-info">
+            <h3>📋 Project Overview</h3>
+            <p><strong>Project:</strong> AI-Powered CCTV Analysis System with Multi-Camera Support</p>
+            <p><strong>Duration:</strong> October 15, 2025 - November 15, 2025 (4 weeks)</p>
+            <p><strong>Team:</strong> Development Team</p>
+            <p><strong>Status:</strong> <span style="color: #27ae60; font-weight: bold;">✅ COMPLETED</span></p>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="ganttChart"></canvas>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #3498db;"></div>
+                <span>Planning & Setup</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #e74c3c;"></div>
+                <span>Core Development</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #f39c12;"></div>
+                <span>AI Integration</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #9b59b6;"></div>
+                <span>CCTV Features</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #27ae60;"></div>
+                <span>Testing & Optimization</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #34495e;"></div>
+                <span>Documentation</span>
+            </div>
+        </div>
+
+        <div class="milestone">
+            <h3>🎯 Key Milestones Achieved</h3>
+            <ul>
+                <li>✅ <strong>Oct 18:</strong> Basic image processing pipeline completed</li>
+                <li>✅ <strong>Oct 22:</strong> Video frame extraction implemented</li>
+                <li>✅ <strong>Oct 25:</strong> AI object detection integrated</li>
+                <li>✅ <strong>Oct 28:</strong> Vector database and search functionality</li>
+                <li>✅ <strong>Nov 01:</strong> CCTV multi-camera recursive scanning</li>
+                <li>✅ <strong>Nov 05:</strong> CSV logging and analytics</li>
+                <li>✅ <strong>Nov 08:</strong> URL/Cloud video processing</li>
+                <li>✅ <strong>Nov 12:</strong> Enhanced UI and error handling</li>
+                <li>✅ <strong>Nov 15:</strong> Project completion and documentation</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 30px; padding: 15px; background: #d5dbdb; border-radius: 5px;">
+            <h3>📊 Project Statistics</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <div><strong>Total Tasks:</strong> 20</div>
+                <div><strong>Completed:</strong> 20 (100%)</div>
+                <div><strong>Code Files:</strong> 6</div>
+                <div><strong>Features Implemented:</strong> 15+</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Gantt Chart Data
+        const tasks = [
+            // Phase 1: Planning & Setup (Oct 15-17)
+            {
+                task: "Project Planning & Requirements",
+                start: "2025-10-15",
+                end: "2025-10-16",
+                category: "Planning",
+                color: "#3498db"
+            },
+            {
+                task: "Environment Setup & Dependencies",
+                start: "2025-10-16",
+                end: "2025-10-17",
+                category: "Planning", 
+                color: "#3498db"
+            },
+            
+            // Phase 2: Core Development (Oct 17-22)
+            {
+                task: "Image Processing Foundation",
+                start: "2025-10-17",
+                end: "2025-10-19",
+                category: "Core Dev",
+                color: "#e74c3c"
+            },
+            {
+                task: "EXIF Data Extraction",
+                start: "2025-10-18",
+                end: "2025-10-19",
+                category: "Core Dev",
+                color: "#e74c3c"
+            },
+            {
+                task: "Video Frame Extraction",
+                start: "2025-10-19",
+                end: "2025-10-22",
+                category: "Core Dev",
+                color: "#e74c3c"
+            },
+            
+            // Phase 3: AI Integration (Oct 22-26)
+            {
+                task: "LangChain Integration",
+                start: "2025-10-22",
+                end: "2025-10-24",
+                category: "AI",
+                color: "#f39c12"
+            },
+            {
+                task: "Vision Model Setup (Ollama)",
+                start: "2025-10-23",
+                end: "2025-10-25",
+                category: "AI",
+                color: "#f39c12"
+            },
+            {
+                task: "Object Detection Chain",
+                start: "2025-10-24",
+                end: "2025-10-26",
+                category: "AI",
+                color: "#f39c12"
+            },
+            
+            // Phase 4: Database & Search (Oct 25-28)
+            {
+                task: "ChromaDB Vector Storage",
+                start: "2025-10-25",
+                end: "2025-10-27",
+                category: "Core Dev",
+                color: "#e74c3c"
+            },
+            {
+                task: "Semantic Search Implementation",
+                start: "2025-10-26",
+                end: "2025-10-28",
+                category: "AI",
+                color: "#f39c12"
+            },
+            
+            // Phase 5: CCTV Features (Oct 28 - Nov 2)
+            {
+                task: "Recursive Directory Scanning",
+                start: "2025-10-28",
+                end: "2025-10-30",
+                category: "CCTV",
+                color: "#9b59b6"
+            },
+            {
+                task: "Multi-Camera Folder Support",
+                start: "2025-10-30",
+                end: "2025-11-01",
+                category: "CCTV",
+                color: "#9b59b6"
+            },
+            {
+                task: "CCTV UI Enhancements",
+                start: "2025-11-01",
+                end: "2025-11-02",
+                category: "CCTV",
+                color: "#9b59b6"
+            },
+            
+            // Phase 6: Advanced Features (Nov 2-8)
+            {
+                task: "CSV Logging System",
+                start: "2025-11-02",
+                end: "2025-11-05",
+                category: "Core Dev",
+                color: "#e74c3c"
+            },
+            {
+                task: "URL/Cloud Video Processing",
+                start: "2025-11-04",
+                end: "2025-11-08",
+                category: "Core Dev",
+                color: "#e74c3c"
+            },
+            {
+                task: "Analytics & Reporting",
+                start: "2025-11-05",
+                end: "2025-11-07",
+                category: "Core Dev",
+                color: "#e74c3c"
+            },
+            
+            // Phase 7: Testing & Optimization (Nov 7-12)
+            {
+                task: "System Testing",
+                start: "2025-11-07",
+                end: "2025-11-10",
+                category: "Testing",
+                color: "#27ae60"
+            },
+            {
+                task: "Performance Optimization",
+                start: "2025-11-09",
+                end: "2025-11-12",
+                category: "Testing",
+                color: "#27ae60"
+            },
+            
+            // Phase 8: Documentation (Nov 10-15)
+            {
+                task: "Code Documentation",
+                start: "2025-11-10",
+                end: "2025-11-13",
+                category: "Documentation",
+                color: "#34495e"
+            },
+            {
+                task: "User Guides & README",
+                start: "2025-11-12",
+                end: "2025-11-15",
+                category: "Documentation",
+                color: "#34495e"
+            }
+        ];
+
+        // Create Chart
+        const ctx = document.getElementById('ganttChart').getContext('2d');
+        
+        // Transform data for Chart.js
+        const datasets = tasks.map((task, index) => ({
+            label: task.task,
+            data: [{
+                x: task.start,
+                y: index,
+                x2: task.end
+            }],
+            backgroundColor: task.color,
+            borderColor: task.color,
+            borderWidth: 1,
+            barThickness: 20,
+            categoryPercentage: 0.8,
+            barPercentage: 0.9
+        }));
+
+        const chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: tasks.map(task => task.task),
+                datasets: [{
+                    label: 'Tasks',
+                    data: tasks.map((task, index) => {
+                        const start = new Date(task.start);
+                        const end = new Date(task.end);
+                        const duration = (end - start) / (1000 * 60 * 60 * 24); // days
+                        return {
+                            x: start,
+                            y: index,
+                            duration: duration
+                        };
+                    }),
+                    backgroundColor: tasks.map(task => task.color),
+                    borderColor: tasks.map(task => task.color),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'CCTV Object Detection System - Development Timeline',
+                        font: {
+                            size: 16,
+                            weight: 'bold'
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: function(context) {
+                                return tasks[context[0].dataIndex].task;
+                            },
+                            label: function(context) {
+                                const task = tasks[context.dataIndex];
+                                return [
+                                    `Start: ${task.start}`,
+                                    `End: ${task.end}`,
+                                    `Category: ${task.category}`
+                                ];
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: {
+                            unit: 'day',
+                            displayFormats: {
+                                day: 'MMM dd'
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Timeline (October - November 2025)'
+                        },
+                        min: '2025-10-14',
+                        max: '2025-11-16'
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Project Tasks'
+                        },
+                        ticks: {
+                            callback: function(value, index) {
+                                return tasks[index] ? tasks[index].task.substring(0, 25) + '...' : '';
+                            }
+                        }
+                    }
+                },
+                elements: {
+                    bar: {
+                        borderRadius: 4
+                    }
+                }
+            }
+        });
+
+        // Add current date marker
+        const today = new Date();
+        if (today >= new Date('2025-10-14') && today <= new Date('2025-11-16')) {
+            // Add a vertical line for today
+            Chart.register({
+                id: 'todayLine',
+                afterDraw: function(chart) {
+                    const ctx = chart.ctx;
+                    const chartArea = chart.chartArea;
+                    const todayX = chart.scales.x.getPixelForValue(today);
+                    
+                    ctx.save();
+                    ctx.strokeStyle = '#e74c3c';
+                    ctx.lineWidth = 2;
+                    ctx.setLineDash([5, 5]);
+                    ctx.beginPath();
+                    ctx.moveTo(todayX, chartArea.top);
+                    ctx.lineTo(todayX, chartArea.bottom);
+                    ctx.stroke();
+                    ctx.restore();
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCTV System Architecture - Proposed Model</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .layer {
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid #dee2e6;
+            transition: transform 0.3s ease;
+        }
+        .layer:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .layer h3 {
+            color: #495057;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            border-bottom: 2px solid #6c757d;
+            padding-bottom: 8px;
+        }
+        .component {
+            background: #ffffff;
+            margin: 8px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+            font-size: 0.9em;
+        }
+        .input { border-left-color: #28a745; }
+        .processing { border-left-color: #ffc107; }
+        .storage { border-left-color: #dc3545; }
+        .interface { border-left-color: #17a2b8; }
+        
+        .flow-diagram {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        .flow-step {
+            display: inline-block;
+            background: linear-gradient(145deg, #007bff, #0056b3);
+            color: white;
+            padding: 15px 25px;
+            margin: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            position: relative;
+        }
+        .flow-step::after {
+            content: '→';
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+            color: #007bff;
+        }
+        .flow-step:last-child::after {
+            display: none;
+        }
+        
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .tech-category {
+            background: linear-gradient(145deg, #e3f2fd, #bbdefb);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .tech-category h4 {
+            color: #1976d2;
+            margin-bottom: 15px;
+        }
+        .tech-item {
+            background: white;
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+        
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .metric {
+            background: linear-gradient(145deg, #d4edda, #c3e6cb);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #155724;
+        }
+        .metric-label {
+            color: #495057;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        .timeline {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        .phase {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border-left: 5px solid #007bff;
+        }
+        .phase-number {
+            background: #007bff;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        .phase-content h4 {
+            margin: 0 0 5px 0;
+            color: #2c3e50;
+        }
+        .phase-content p {
+            margin: 0;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏗️ CCTV Object Detection System - Proposed Architecture</h1>
+        
+        <div class="architecture-grid">
+            <div class="layer">
+                <h3>📥 Input Layer</h3>
+                <div class="component input">📹 Live Camera Streams</div>
+                <div class="component input">📁 Recorded Video Files</div>
+                <div class="component input">☁️ Cloud Storage (GDrive)</div>
+                <div class="component input">🌐 Network File Shares</div>
+                <div class="component input">📱 Mobile App Uploads</div>
+            </div>
+            
+            <div class="layer">
+                <h3>🤖 Processing Layer</h3>
+                <div class="component processing">🎯 Object Detection (YOLO)</div>
+                <div class="component processing">🔍 Scene Analysis (LLaVA)</div>
+                <div class="component processing">🏃 Activity Recognition</div>
+                <div class="component processing">👤 Face Detection (Optional)</div>
+                <div class="component processing">🚗 License Plate Reader</div>
+            </div>
+            
+            <div class="layer">
+                <h3>🗄️ Storage Layer</h3>
+                <div class="component storage">🔍 Vector Database (Chroma)</div>
+                <div class="component storage">📊 Metadata DB (PostgreSQL)</div>
+                <div class="component storage">⏱️ Time Series (InfluxDB)</div>
+                <div class="component storage">📦 Object Storage (MinIO)</div>
+                <div class="component storage">⚡ Cache Layer (Redis)</div>
+            </div>
+            
+            <div class="layer">
+                <h3>🖥️ Interface Layer</h3>
+                <div class="component interface">🌐 Web Dashboard</div>
+                <div class="component interface">📱 Mobile Application</div>
+                <div class="component interface">🔌 REST API</div>
+                <div class="component interface">⚡ WebSocket (Real-time)</div>
+                <div class="component interface">🖥️ CLI Tools</div>
+            </div>
+        </div>
+        
+        <div class="flow-diagram">
+            <h3>📊 Data Processing Flow</h3>
+            <div style="margin: 20px 0;">
+                <div class="flow-step">Camera Input</div>
+                <div class="flow-step">Frame Extraction</div>
+                <div class="flow-step">AI Analysis</div>
+                <div class="flow-step">Data Storage</div>
+                <div class="flow-step">Alert Generation</div>
+            </div>
+        </div>
+        
+        <div class="tech-stack">
+            <div class="tech-category">
+                <h4>🧠 AI & Machine Learning</h4>
+                <div class="tech-item">🎯 YOLOv8 (Object Detection)</div>
+                <div class="tech-item">🔍 LLaVA 13B (Vision Analysis)</div>
+                <div class="tech-item">🤖 Ollama (Local AI)</div>
+                <div class="tech-item">🔗 LangChain (AI Orchestration)</div>
+                <div class="tech-item">📊 OpenCV (Computer Vision)</div>
+            </div>
+            
+            <div class="tech-category">
+                <h4>💾 Data & Storage</h4>
+                <div class="tech-item">🔍 ChromaDB (Vector Search)</div>
+                <div class="tech-item">🐘 PostgreSQL (Metadata)</div>
+                <div class="tech-item">⏱️ InfluxDB (Time Series)</div>
+                <div class="tech-item">📦 MinIO (Object Storage)</div>
+                <div class="tech-item">⚡ Redis (Caching)</div>
+            </div>
+            
+            <div class="tech-category">
+                <h4>🌐 Web & Mobile</h4>
+                <div class="tech-item">⚡ FastAPI (Backend API)</div>
+                <div class="tech-item">⚛️ React (Web Frontend)</div>
+                <div class="tech-item">📱 Flutter (Mobile App)</div>
+                <div class="tech-item">🔌 WebSocket (Real-time)</div>
+                <div class="tech-item">🐳 Docker (Containerization)</div>
+            </div>
+        </div>
+        
+        <div class="metrics">
+            <div class="metric">
+                <div class="metric-value">30</div>
+                <div class="metric-label">FPS Processing</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">99.9%</div>
+                <div class="metric-label">System Uptime</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">&lt; 200ms</div>
+                <div class="metric-label">Search Response</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">&lt; 5s</div>
+                <div class="metric-label">Alert Latency</div>
+            </div>
+        </div>
+        
+        <div class="timeline">
+            <h3>🚀 Implementation Timeline</h3>
+            
+            <div class="phase">
+                <div class="phase-number">1</div>
+                <div class="phase-content">
+                    <h4>Foundation Phase (Q4 2025)</h4>
+                    <p>Core AI processing, basic web dashboard, local deployment</p>
+                </div>
+            </div>
+            
+            <div class="phase">
+                <div class="phase-number">2</div>
+                <div class="phase-content">
+                    <h4>Enhancement Phase (Q1 2026)</h4>
+                    <p>Real-time processing, mobile app, cloud integrations</p>
+                </div>
+            </div>
+            
+            <div class="phase">
+                <div class="phase-number">3</div>
+                <div class="phase-content">
+                    <h4>Enterprise Phase (Q2 2026)</h4>
+                    <p>Multi-tenancy, advanced security, compliance features</p>
+                </div>
+            </div>
+            
+            <div class="phase">
+                <div class="phase-number">4</div>
+                <div class="phase-content">
+                    <h4>AI Enhancement Phase (Q3 2026)</h4>
+                    <p>Custom models, federated learning, edge computing</p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="background: linear-gradient(145deg, #e8f5e8, #d4edda); padding: 30px; border-radius: 10px; text-align: center; margin: 30px 0;">
+            <h3 style="color: #155724; margin-bottom: 15px;">💰 Investment Summary</h3>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+                <div>
+                    <h4 style="color: #155724;">Development Investment</h4>
+                    <div style="font-size: 2em; font-weight: bold; color: #155724;">$375K</div>
+                    <div style="color: #495057;">12-month timeline</div>
+                </div>
+                <div>
+                    <h4 style="color: #155724;">Annual ROI</h4>
+                    <div style="font-size: 2em; font-weight: bold; color: #155724;">$200K+</div>
+                    <div style="color: #495057;">Efficiency savings</div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 30px 0;">
+            <h3 style="color: #2c3e50; text-align: center;">🎯 Key Success Factors</h3>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                <div>
+                    <h4>✅ Technical Excellence</h4>
+                    <ul>
+                        <li>Proven AI models (YOLOv8, LLaVA)</li>
+                        <li>Scalable microservices architecture</li>
+                        <li>Modern web technologies</li>
+                        <li>Cloud-native design</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>✅ Business Value</h4>
+                    <ul>
+                        <li>70% reduction in manual review</li>
+                        <li>Real-time threat detection</li>
+                        <li>Comprehensive audit trails</li>
+                        <li>ROI within 18 months</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
